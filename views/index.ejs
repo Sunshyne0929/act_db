@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>Database Table</title>
+</head>
+<body>
+
+    <!-- Form to add new data -->
+    <form action="/save" method="post">
+        <label for="lastname">lastname</label>
+        <input type="text" name="lastname" placeholder="lastname" required>
+        <br>
+        <label for="firstname">firstname</label>
+        <input type="text" name="firstname" placeholder="firstname" required>
+        <br>
+        <label for="email">email</label>
+        <input type="text" name="email" placeholder="email" required>
+        <br>
+        <label for="gender">gender</label>
+        <select name="gender">
+            <option value="male">male</option>
+            <option value="female">female</option>
+        </select>
+        <input type="submit" value="save">
+        <br>
+    </form>
+
+    <!-- Table to display data from database -->
+    <h2>Database Contents:</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Email</th>
+                <th>Gender</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(function(row) { %>
+                <tr>
+                    <td><%= row.id %></td>
+                    <td><%= row.lastname %></td>
+                    <td><%= row.firstname %></td>
+                    <td><%= row.email %></td>
+                    <td><%= row.gender %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+</body>
+</html>
